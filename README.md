@@ -32,7 +32,7 @@ Designed specifically for roles in **Cybersecurity Analysis, Security Operations
 ---
 
 ## 📄 Resume
-You can view or download the complete professional resume directly within the repository under [`THARUN PUTANI.pdf`](./THARUN_PUTANI.pdf)[cite: 1].
+You can view or download the complete professional resume directly within the repository under [`THARUN PUTANI.pdf`](./THARUN_PUTANI.pdf).
 
 ---
 
