@@ -2,7 +2,7 @@
 
 A modern, high-tech, and responsive cybersecurity portfolio and resume portal featuring a dark cyber-aesthetic, interactive split-screen terminal navigation, and live lab documentation.
 
-🔗 **Live Portfolio:** [View Live Site](https://your-github-username.github.io/your-repo-name/)
+🔗 **Live Portfolio:** [View Live Site](https://tharunputani.github.io/Tharun_Putani/)
 
 ---
 
