@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tharun Putani | Cybersecurity Engineer</title>
+    <title>Tharun Putani | Network Support Executive & Security Engineer</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -36,9 +36,7 @@
             position: relative;
         }
 
-        /* =========================================
-           ADOBE-STYLE FLUID BACKGROUND
-        ========================================= */
+        /* ADOBE-STYLE FLUID BACKGROUND */
         .adobe-bg {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -65,9 +63,7 @@
             100% { transform: translate(-50px, -40px) scale(0.9); }
         }
 
-        /* =========================================
-           LAYOUT & PANELS
-        ========================================= */
+        /* LAYOUT & PANELS */
         .container {
             display: flex;
             width: 100%;
@@ -76,7 +72,7 @@
             min-height: 100vh;
         }
 
-        /* Left Fixed Glass Pane (Desktop) */
+        /* Left Fixed Glass Pane */
         .left-pane {
             width: 38%;
             position: fixed;
@@ -95,21 +91,10 @@
             scrollbar-width: thin;
         }
 
-        /* Custom Scrollbar for Left Pane */
-        .left-pane::-webkit-scrollbar {
-            width: 8px;
-        }
-        .left-pane::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.3);
-            border-left: 1px solid var(--glass-border);
-        }
-        .left-pane::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 4px;
-        }
-        .left-pane::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.9);
-        }
+        .left-pane::-webkit-scrollbar { width: 8px; }
+        .left-pane::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); border-left: 1px solid var(--glass-border); }
+        .left-pane::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.6); border-radius: 4px; }
+        .left-pane::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.9); }
 
         .brand-logo-container {
             display: flex;
@@ -130,9 +115,7 @@
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .brand-logo-container img:hover {
-            transform: scale(1.15) rotate(5deg);
-        }
+        .brand-logo-container img:hover { transform: scale(1.15) rotate(5deg); }
 
         .brand-logo-container span {
             font-family: 'Fira Code', monospace;
@@ -155,9 +138,9 @@
 
         .bio {
             color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.6;
         }
 
         .resume-btn {
@@ -202,7 +185,7 @@
             transform: translateY(-4px) scale(1.1);
         }
 
-        /* Desktop Navigation Links */
+        /* Navigation Links */
         .terminal-nav {
             display: flex;
             flex-direction: column;
@@ -221,25 +204,10 @@
             position: relative;
         }
 
-        .terminal-nav a::before {
-            content: "🕷";
-            font-size: 0.85rem;
-            color: var(--accent-red);
-            opacity: 0;
-            transition: all 0.3s ease;
-            transform: scale(0) rotate(-45deg);
-        }
-
         .terminal-nav a:hover {
-            color: #f6e6e6;
+            color: #ffffff;
             transform: translateX(10px);
-            text-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
-        }
-
-        .terminal-nav a:hover::before {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-            text-shadow: 0 0 10px var(--accent-red);
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
         }
 
         /* Right Scrollable Content Pane */
@@ -274,9 +242,7 @@
             background: linear-gradient(to right, var(--accent-magenta), transparent);
         }
 
-        /* =========================================
-           CARDS (GLASSMORPHISM)
-        ========================================= */
+        /* CARDS (GLASSMORPHISM) */
         .grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -331,9 +297,21 @@
 
         .card p {
             color: var(--text-muted);
-            font-size: 1rem;
+            font-size: 0.98rem;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-left: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.6rem;
         }
 
         .tags {
@@ -369,6 +347,7 @@
             font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s;
+            margin-top: 0.5rem;
         }
 
         .card-link:hover {
@@ -389,7 +368,7 @@
             transform: translateY(0);
         }
 
-        /* Modal */
+        /* Modal Overlay */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -412,9 +391,7 @@
             box-shadow: 0 0 50px rgba(0, 229, 255, 0.5);
         }
 
-        /* =========================================
-           RESPONSIVE & FLOATING BOX NAV BAR FOR MOBILE
-        ========================================= */
+        /* Mobile View Navigation */
         @media(max-width: 1024px) {
             body { flex-direction: column; }
             .container { flex-direction: column; }
@@ -434,7 +411,6 @@
                 padding: 3rem 2rem 8rem 2rem;
             }
 
-            /* FIXED FLOATING BOX NAV BAR MATCHING THE "VIEW RESUME" BOX */
             .terminal-nav {
                 position: fixed;
                 bottom: 15px;
@@ -446,7 +422,7 @@
                 backdrop-filter: blur(20px);
                 -webkit-backdrop-filter: blur(20px);
                 border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 16px; /* Matches card/button rounding style */
+                border-radius: 16px;
                 flex-direction: row;
                 overflow-x: auto;
                 padding: 12px 18px;
@@ -457,7 +433,6 @@
             }
             .terminal-nav::-webkit-scrollbar { display: none; }
             .terminal-nav a { white-space: nowrap; font-size: 0.9rem; }
-            .terminal-nav a::before { display: none; }
             .terminal-nav a:hover { transform: none; color: var(--accent-cyan); }
         }
     </style>
@@ -486,7 +461,7 @@
                 </div>
 
                 <h1>Tharun<br>Putani</h1>
-                <p class="bio">A passionate continuous learner combining enterprise network engineering, core cybersecurity threat monitoring, and frontend user interface implementation to build secure, reliable systems.</p>
+                <p class="bio">Systems-focused Network Support Executive with a B.Tech in Computer Science (Artificial Intelligence). Combines hands-on experience in enterprise networking, telemetry monitoring, and incident management with a strong background in Linux administration, Python scripting, and cloud security labs.</p>
                 
                 <a href="THARUN PUTANI.pdf" target="_blank" class="resume-btn">
                     <i class="fas fa-file-pdf"></i> View Resume
@@ -499,7 +474,7 @@
                 </div>
             </div>
 
-            <!-- Floating Box Nav on Mobile / Side Nav on Desktop -->
+            <!-- Mobile & Desktop Navigation Bar -->
             <nav class="terminal-nav">
                 <a href="#about">Profile</a>
                 <a href="#experience">Experience</a>
@@ -519,9 +494,14 @@
                 <div class="grid">
                     <div class="card">
                         <h3>Madanapalle Institute of Technology and Science</h3>
-                        <span class="meta">B.Tech - Computer Science Engineering (AI)</span>
-                        <p>Dec 2021 – May 2025</p>
-                        <p>Merging infrastructure management with artificial intelligence methodologies to optimize and secure modern digital networks.</p>
+                        <span class="meta">Bachelor of Technology in Computer Science Engineering (Artificial Intelligence)</span>
+                        <p>Dec 2021 – May 2025 | Angallu, AP</p>
+                        <p>Specialized in merging enterprise infrastructure management with AI methodologies to secure and optimize high-availability digital networks.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Bharathi Junior College</h3>
+                        <span class="meta">MPC Intermediate</span>
+                        <p>June 2019 – March 2021 | Madanapalle, AP</p>
                     </div>
                 </div>
             </section>
@@ -531,52 +511,79 @@
                 <div class="grid">
                     <div class="card">
                         <h3>Network Support Executive</h3>
-                        <span class="meta">Ibus Technologies Private Limited | Dec 2025 – Present</span>
-                        <p>First line of defense for enterprise network health, performing continuous monitoring, initial log analysis, alert classification, and independent L1/L2 troubleshooting for core protocols.</p>
+                        <span class="meta">Ibus Technologies Private Limited | Bangalore | Dec 2025 – Present</span>
+                        <ul>
+                            <li><strong>Systems Monitoring & Telemetry:</strong> Monitor enterprise network health and system availability, conducting initial log analysis, alert classification, and root-cause identification.</li>
+                            <li><strong>L1/L2 Troubleshooting:</strong> Perform independent troubleshooting on core routing protocols (BGP, OSPF) and network services (DNS, DHCP, RADIUS) via Linux command-line tools.</li>
+                            <li><strong>Incident Lifecycle & Documentation:</strong> Manage incident response lifecycles, documenting network anomalies and creating structured asset documentation to streamline Tier 3 engineering escalations.</li>
+                            <li><strong>Security & Reliability Assurance:</strong> Validate IPSec/GRE VPN tunnels, firewall ACLs, and VLAN segmentation to ensure security baselines and uptime SLAs.</li>
+                        </ul>
                         <div class="tags">
                             <span class="tag">BGP/OSPF</span>
-                            <span class="tag">IPSec VPN</span>
+                            <span class="tag">IPSec/GRE VPN</span>
                             <span class="tag">Firewall ACLs</span>
+                            <span class="tag">Linux CLI</span>
+                            <span class="tag">RADIUS/DNS/DHCP</span>
                             <span class="tag">Telemetry</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Technical Arsenal (3 Cards) -->
+            <!-- Technical Arsenal Section -->
             <section id="skills" class="reveal">
                 <div class="section-title">03 // Technical Arsenal</div>
                 <div class="grid">
                     <div class="card">
-                        <h3>Security & SIEM Monitoring</h3>
+                        <h3>Operating Systems & Infrastructure</h3>
                         <div class="tags">
-                            <span class="tag">SIEM & Log Analysis</span>
-                            <span class="tag">ELK Stack (Elasticsearch, Logstash, Kibana)</span>
-                            <span class="tag">Splunk</span>
-                            <span class="tag">Snort IDS</span>
-                            <span class="tag">pfSense</span>
-                            <span class="tag">Wireshark Packet Analysis</span>
+                            <span class="tag">Linux (Ubuntu/Debian, Fedora)</span>
+                            <span class="tag">Command-Line Administration</span>
+                            <span class="tag">Bash Scripting</span>
+                            <span class="tag">Systems Design & Reliability</span>
                         </div>
                     </div>
                     <div class="card">
-                        <h3>Networking & Infrastructure</h3>
+                        <h3>Programming & Automation</h3>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Bash</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">C</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Networking & Protocols</h3>
                         <div class="tags">
                             <span class="tag">TCP/IP</span>
                             <span class="tag">BGP</span>
                             <span class="tag">OSPF</span>
-                            <span class="tag">DNS/DHCP/RADIUS</span>
-                            <span class="tag">VLAN Segmentation</span>
+                            <span class="tag">DNS</span>
+                            <span class="tag">DHCP</span>
+                            <span class="tag">RADIUS</span>
+                            <span class="tag">IPSec/GRE VPN</span>
+                            <span class="tag">Snort IDS</span>
+                            <span class="tag">pfSense</span>
+                            <span class="tag">Wireshark</span>
                         </div>
                     </div>
                     <div class="card">
-                        <h3>Frontend & Programming Stack</h3>
+                        <h3>Cloud & Security Analytics</h3>
                         <div class="tags">
-                            <span class="tag">HTML5 / CSS3</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Bootstrap</span>
-                            <span class="tag">Python & Bash</span>
-                            <span class="tag">Linux Admin</span>
-                            <span class="tag">AWS (EC2, S3)</span>
+                            <span class="tag">AWS (EC2, S3, CloudTrail, GuardDuty, IAM)</span>
+                            <span class="tag">ELK Stack (Elasticsearch, Logstash, Kibana)</span>
+                            <span class="tag">SIEM</span>
+                            <span class="tag">Splunk</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Operations & Engineering</h3>
+                        <div class="tags">
+                            <span class="tag">Incident Response Lifecycle</span>
+                            <span class="tag">Asset & Technical Documentation</span>
+                            <span class="tag">Alert Classification</span>
+                            <span class="tag">Root-Cause Analysis</span>
                         </div>
                     </div>
                 </div>
@@ -586,38 +593,38 @@
                 <div class="section-title">04 // Security Labs</div>
                 <div class="grid">
                     <div class="card">
-                        <h3>Hybrid Virtual vSOC & Network Monitoring Lab</h3>
-                        <p>Designed and deployed a multi-tier virtualized system environment to simulate operational stress. Implemented pfSense for network segmentation and integrated an ELK Stack via Security Onion to ingest telemetry and ensure reliability.</p>
-                        <div class="tags"><span class="tag">Security Onion</span><span class="tag">pfSense</span><span class="tag">ELK Stack</span></div>
+                        <h3>Hybrid Virtual Security Operations Center (vSOC) & Network Monitoring Lab</h3>
+                        <p>Designed and deployed a multi-tier virtualized system environment to simulate operational stress, physical forms, and defensive monitoring. Implemented pfSense for network segmentation and integrated an ELK Stack via Security Onion to ingest telemetry and ensure system reliability.</p>
+                        <div class="tags"><span class="tag">Security Onion</span><span class="tag">pfSense</span><span class="tag">ELK Stack</span><span class="tag">Networking</span></div>
                     </div>
                     <div class="card">
                         <h3>Virtual SOC & Network Telemetry Monitor</h3>
-                        <p>Developed automated script parsers in Python and Bash to analyze Windows Security Event Logs (identifying critical Event IDs like 4624, 4625, and 4688) to track system performance and flag anomalous behavior.</p>
-                        <div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Event Logs</span></div>
+                        <p>Developed automated script parsers to analyze Windows Security Event Logs (identifying Event IDs like 4624, 4625, and 4688) to track system performance and flag anomalous behavior.</p>
+                        <div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Windows Event Logs</span><span class="tag">Wireshark</span></div>
                     </div>
                     <div class="card">
                         <h3>Cloud Security Monitoring & Threat Detection Lab</h3>
-                        <p>Implemented a cloud-based monitoring environment utilizing AWS CloudTrail, Amazon GuardDuty, and custom IAM policies to capture real-time API logs and execute automated threat analysis.</p>
-                        <div class="tags"><span class="tag">AWS GuardDuty</span><span class="tag">CloudTrail</span><span class="tag">IAM</span></div>
+                        <p>Implemented a cloud-based monitoring environment to establish real-time operational visibility, capturing API activity logs and running automated threat analyses.</p>
+                        <div class="tags"><span class="tag">AWS CloudTrail</span><span class="tag">Amazon GuardDuty</span><span class="tag">IAM</span></div>
                     </div>
                 </div>
             </section>
 
             <section id="publications" class="reveal">
-                <div class="section-title">05 // Research</div>
+                <div class="section-title">05 // Research & Achievements</div>
                 <div class="grid">
                     <div class="card">
-                        <h3>Real-Time Car Accident Detection using Enhanced YOLO</h3>
-                        <span class="meta">Published in: IEEE Xplore | 2026</span>
-                        <p>Presents a real-time accident detection system analyzing live CCTV/dashcam streams, integrated with cloud notification architecture for automated emergency dispatching.</p>
-                        <p style="margin-top:0.5rem; font-size: 0.9rem;"><strong>Authors:</strong> Purandhar N, Tharun Gopal Agraharam, Tharun Putani, K. Dhanush, K. Yadav</p>
+                        <h3>Real Time Car Accident Detection and Emergency Response Using Enhanced YOLO</h3>
+                        <span class="meta">Published at 5th EAI ICCSSAS 2025</span>
+                        <p>Published research paper titled "Real Time Car Accident Detection and Emergency Response Using Enhanced YOLO" presented at the 5th EAI International Conference on Cognitive Computing and Cyber Physical Systems (ICCSSAS 2025).</p>
                         <div class="tags">
-                            <span class="tag">IEEE</span>
                             <span class="tag">Computer Vision</span>
-                            <span class="tag">YOLO Model</span>
+                            <span class="tag">Enhanced YOLO</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">EAI ICCSSAS 2025</span>
                         </div>
                         <a href="https://ieeexplore.ieee.org/document/11459554" target="_blank" class="card-link">
-                            View on IEEE Xplore &rarr;
+                            View Publication &rarr;
                         </a>
                     </div>
                 </div>
@@ -626,12 +633,30 @@
             <section id="certifications" class="reveal">
                 <div class="section-title">06 // Certifications</div>
                 
-                <h3 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 1rem; margin-top: 1rem;">Active Learning Paths</h3>
+                <h3 style="color: var(--accent-magenta); font-size: 1.1rem; margin-bottom: 1rem;">Acquired Credentials</h3>
                 <div class="grid" style="margin-bottom: 3rem;">
+                    <div class="card">
+                        <div class="tags">
+                            <span class="tag">Google Cybersecurity Professional Certificate</span>
+                            <span class="tag">CCNAv7: Enterprise Networking, Security, and Automation</span>
+                            <span class="tag">Splunk - Data and Tools for Defense Analysts</span>
+                            <span class="tag">Python – Coding Ninjas</span>
+                            <span class="tag">Java – Simplilearn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 1rem;">Active Preparation / Learning Paths</h3>
+                <div class="grid">
                     <div class="card">
                         <h3>CompTIA Security+ (SY0-701)</h3>
                         <span class="meta">In Progress // Exam Prep</span>
                         <p>Mastering core security principles, risk management, identity management, and cryptography.</p>
+                    </div>
+                    <div class="card">
+                        <h3>School of AI Certified Cloud Practitioner (Foundational)</h3>
+                        <span class="meta">In Progress // Exam Prep</span>
+                        <p>Mastering core cloud infrastructure, deployment models, virtual networking, and IAM security controls to design scalable cloud environments.</p>
                     </div>
                     <div class="card">
                         <h3>Microsoft SC-200 (Security Operations Analyst)</h3>
@@ -644,29 +669,17 @@
                         <p>Completing hands-on modules covering SIEM operations, endpoint security, and threat intelligence.</p>
                     </div>
                 </div>
-
-                <h3 style="color: var(--accent-magenta); font-size: 1.1rem; margin-bottom: 1rem;">Acquired Credentials</h3>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Completed Certifications</h3>
-                        <div class="tags">
-                            <span class="tag">Google Cybersecurity</span>
-                            <span class="tag">Splunk Defense Analytics</span>
-                            <span class="tag">CCNAv7 Networking</span>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <section id="contact" class="reveal">
                 <div class="section-title">07 // Connect</div>
                 <div class="card">
                     <h3>Initiate Contact</h3>
-                    <p>Actively looking to contribute as a Cybersecurity Analyst, SOC Analyst, or Network Security Engineer.</p>
-                    <p style="margin-top: 1rem;">
+                    <p>Actively open to enterprise networking, SOC engineering, and system security opportunities.</p>
+                    <p style="margin-top: 1rem; line-height: 1.8;">
                         <strong>Email:</strong> <a href="mailto:tharunputani@gmail.com" style="color:var(--accent-cyan); text-decoration:none;">tharunputani@gmail.com</a><br>
                         <strong>Phone:</strong> +91 9494892028<br>
-                        <strong>Location:</strong> Madanapalle, Andhra Pradesh
+                        <strong>Location:</strong> Madanapalle, Andhra Pradesh – 517325
                     </p>
                 </div>
             </section>
@@ -675,11 +688,9 @@
     </div>
 
     <script>
-        // Modal Zoom Functionality
         function openModal() { document.getElementById('logoModal').classList.add('active'); }
         function closeModal() { document.getElementById('logoModal').classList.remove('active'); }
 
-        // Scroll Reveal Animation
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
