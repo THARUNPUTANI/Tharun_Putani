@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tharun Putani | Network Support Executive & Security Engineer</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-base: #09090e;
+            --glass-bg: rgba(20, 20, 35, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent-cyan: #00e5ff;
+            --accent-magenta: #ff007f;
+            --accent-violet: #7000ff;
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ADOBE-STYLE FLUID BACKGROUND */
+        .adobe-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background: var(--bg-base);
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.5;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        .blob-1 { width: 600px; height: 600px; background: var(--accent-magenta); top: -10%; left: -10%; animation-duration: 25s; }
+        .blob-2 { width: 700px; height: 700px; background: var(--accent-violet); bottom: -20%; right: -10%; animation-duration: 22s; animation-delay: -5s; }
+        .blob-3 { width: 500px; height: 500px; background: var(--accent-cyan); top: 40%; left: 40%; animation-duration: 28s; animation-delay: -10s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 80px) scale(1.1); }
+            100% { transform: translate(-50px, -40px) scale(0.9); }
+        }
+
+        /* LAYOUT & PANELS */
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* Left Fixed Glass Pane */
+        .left-pane {
+            width: 38%;
+            position: fixed;
+            height: 100vh;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: rgba(10, 10, 15, 0.4);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-right: 1px solid var(--glass-border);
+            z-index: 10;
+            overflow-y: auto;
+            scrollbar-color: rgba(255, 255, 255, 0.6) rgba(0, 0, 0, 0.3);
+            scrollbar-width: thin;
+        }
+
+        .left-pane::-webkit-scrollbar { width: 8px; }
+        .left-pane::-webkit-scrollbar-track { background: rgba(0, 0, 0, 0.3); border-left: 1px solid var(--glass-border); }
+        .left-pane::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.6); border-radius: 4px; }
+        .left-pane::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.9); }
+
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .brand-logo-container img {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            background: linear-gradient(var(--bg-base), var(--bg-base)) padding-box, 
+                        linear-gradient(45deg, var(--accent-cyan), var(--accent-magenta)) border-box;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .brand-logo-container img:hover { transform: scale(1.15) rotate(5deg); }
+
+        .brand-logo-container span {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            background: linear-gradient(45deg, var(--accent-cyan), #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .profile-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.6;
+        }
+
+        .resume-btn {
+            font-family: 'Fira Code', monospace;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, rgba(255, 0, 127, 0.1), rgba(0, 229, 255, 0.1));
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: fit-content;
+        }
+
+        .resume-btn:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-cyan);
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        /* Navigation Links */
+        .terminal-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .terminal-nav a {
+            font-family: 'Fira Code', monospace;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        .terminal-nav a:hover {
+            color: #ffffff;
+            transform: translateX(10px);
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+
+        /* Right Scrollable Content Pane */
+        .right-pane {
+            width: 62%;
+            margin-left: 38%;
+            padding: 5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+        }
+
+        section {
+            scroll-margin-top: 5rem;
+        }
+
+        .section-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent-magenta), transparent);
+        }
+
+        /* CARDS (GLASSMORPHISM) */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(30, 30, 50, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(112, 0, 255, 0.15);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-violet));
+            border-radius: 4px 0 0 4px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .meta {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            background: rgba(0, 229, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-left: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .tag {
+            border-color: var(--accent-magenta);
+            background: rgba(255, 0, 127, 0.1);
+        }
+
+        .card-link {
+            font-family: 'Fira Code', monospace;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .card-link:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--accent-cyan);
+            transform: translateX(5px);
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-overlay img {
+            max-width: 90vw; max-height: 90vh;
+            border-radius: 16px;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 50px rgba(0, 229, 255, 0.5);
+        }
+
+        /* Mobile View Navigation */
+        @media(max-width: 1024px) {
+            body { flex-direction: column; }
+            .container { flex-direction: column; }
+            
+            .left-pane {
+                position: relative;
+                width: 100%; height: auto;
+                padding: 3rem 2rem 5rem 2rem;
+                border-right: none;
+                border-bottom: 1px solid var(--glass-border);
+                overflow-y: visible;
+            }
+            
+            .right-pane {
+                width: 100%;
+                margin-left: 0;
+                padding: 3rem 2rem 8rem 2rem;
+            }
+
+            .terminal-nav {
+                position: fixed;
+                bottom: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 92%;
+                max-width: 500px;
+                background: rgba(20, 20, 35, 0.85);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 16px;
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 12px 18px;
+                z-index: 9999;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+                gap: 1.5rem;
+                scrollbar-width: none; 
+            }
+            .terminal-nav::-webkit-scrollbar { display: none; }
+            .terminal-nav a { white-space: nowrap; font-size: 0.9rem; }
+            .terminal-nav a:hover { transform: none; color: var(--accent-cyan); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fluid Background Animation -->
+    <div class="adobe-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Enlarge Modal Overlay -->
+    <div class="modal-overlay" id="logoModal" onclick="closeModal()">
+        <img src="logo.jpg" alt="Enlarged Logo">
+    </div>
+
+    <div class="container">
+        <!-- LEFT FIXED PANEL -->
+        <div class="left-pane">
+            <div class="profile-header">
+                <div class="brand-logo-container">
+                    <img src="logo.jpg" alt="Tharun Putani Logo" onclick="openModal()">
+                    <span onclick="openModal()" style="cursor: pointer;">CyberSec_Engineering</span>
+                </div>
+
+                <h1>Tharun<br>Putani</h1>
+                <p class="bio">Systems-focused Network Support Executive with a B.Tech in Computer Science (Artificial Intelligence). Combines hands-on experience in enterprise networking, telemetry monitoring, and incident management with a strong background in Linux administration, Python scripting, and cloud security labs.</p>
+                
+                <a href="THARUN PUTANI.pdf" target="_blank" class="resume-btn">
+                    <i class="fas fa-file-pdf"></i> View Resume
+                </a>
+
+                <div class="social-links">
+                    <a href="https://github.com/THARUNPUTANI" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/tharun-putani/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:tharunputani@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Mobile & Desktop Navigation Bar -->
+            <nav class="terminal-nav">
+                <a href="#about">Profile</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Tech Stack</a>
+                <a href="#projects">Labs</a>
+                <a href="#publications">Research</a>
+                <a href="#certifications">Certs</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+
+        <!-- RIGHT SCROLLABLE CONTENT -->
+        <div class="right-pane">
+            
+            <section id="about" class="reveal">
+                <div class="section-title">01 // Academic Foundation</div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Madanapalle Institute of Technology and Science</h3>
+                        <span class="meta">Bachelor of Technology in Computer Science Engineering (Artificial Intelligence)</span>
+                        <p>Dec 2021 – May 2025 | Angallu, AP</p>
+                        <p>Specialized in merging enterprise infrastructure management with AI methodologies to secure and optimize high-availability digital networks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="reveal">
+                <div class="section-title">02 // Professional Experience</div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Network Support Executive</h3>
+                        <span class="meta">Ibus Technologies Private Limited | Bangalore | Dec 2025 – Present</span>
+                        <ul>
+                            <li><strong>Systems Monitoring & Telemetry:</strong> Monitor enterprise network health and system availability, conducting initial log analysis, alert classification, and root-cause identification.</li>
+                            <li><strong>L1/L2 Troubleshooting:</strong> Perform independent troubleshooting on core routing protocols (BGP, OSPF) and network services (DNS, DHCP, RADIUS) via Linux command-line tools.</li>
+                            <li><strong>Incident Lifecycle & Documentation:</strong> Manage incident response lifecycles, documenting network anomalies and creating structured asset documentation to streamline Tier 3 engineering escalations.</li>
+                            <li><strong>Security & Reliability Assurance:</strong> Validate IPSec/GRE VPN tunnels, firewall ACLs, and VLAN segmentation to ensure security baselines and uptime SLAs.</li>
+                        </ul>
+                        <div class="tags">
+                            <span class="tag">BGP/OSPF</span>
+                            <span class="tag">IPSec/GRE VPN</span>
+                            <span class="tag">Firewall ACLs</span>
+                            <span class="tag">Linux CLI</span>
+                            <span class="tag">RADIUS/DNS/DHCP</span>
+                            <span class="tag">Telemetry</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Arsenal Section -->
+            <section id="skills" class="reveal">
+                <div class="section-title">03 // Technical Arsenal</div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Operating Systems & Infrastructure</h3>
+                        <div class="tags">
+                            <span class="tag">Linux (Ubuntu/Debian, Fedora)</span>
+                            <span class="tag">Command-Line Administration</span>
+                            <span class="tag">Bash Scripting</span>
+                            <span class="tag">Systems Design & Reliability</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Programming & Automation</h3>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Bash</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">C</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Networking & Protocols</h3>
+                        <div class="tags">
+                            <span class="tag">TCP/IP</span>
+                            <span class="tag">BGP</span>
+                            <span class="tag">OSPF</span>
+                            <span class="tag">DNS</span>
+                            <span class="tag">DHCP</span>
+                            <span class="tag">RADIUS</span>
+                            <span class="tag">IPSec/GRE VPN</span>
+                            <span class="tag">Snort IDS</span>
+                            <span class="tag">pfSense</span>
+                            <span class="tag">Wireshark</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Cloud & Security Analytics</h3>
+                        <div class="tags">
+                            <span class="tag">AWS (EC2, S3, CloudTrail, GuardDuty, IAM)</span>
+                            <span class="tag">ELK Stack (Elasticsearch, Logstash, Kibana)</span>
+                            <span class="tag">SIEM</span>
+                            <span class="tag">Splunk</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Operations & Engineering</h3>
+                        <div class="tags">
+                            <span class="tag">Incident Response Lifecycle</span>
+                            <span class="tag">Asset & Technical Documentation</span>
+                            <span class="tag">Alert Classification</span>
+                            <span class="tag">Root-Cause Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="reveal">
+                <div class="section-title">04 // Security Labs</div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Hybrid Virtual Security Operations Center (vSOC) & Network Monitoring Lab</h3>
+                        <p>Designed and deployed a multi-tier virtualized system environment to simulate operational stress, physical forms, and defensive monitoring. Implemented pfSense for network segmentation and integrated an ELK Stack via Security Onion to ingest telemetry and ensure system reliability.</p>
+                        <div class="tags"><span class="tag">Security Onion</span><span class="tag">pfSense</span><span class="tag">ELK Stack</span><span class="tag">Networking</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>Virtual SOC & Network Telemetry Monitor</h3>
+                        <p>Developed automated script parsers to analyze Windows Security Event Logs (identifying Event IDs like 4624, 4625, and 4688) to track system performance and flag anomalous behavior.</p>
+                        <div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Windows Event Logs</span><span class="tag">Wireshark</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>Cloud Security Monitoring & Threat Detection Lab</h3>
+                        <p>Implemented a cloud-based monitoring environment to establish real-time operational visibility, capturing API activity logs and running automated threat analyses.</p>
+                        <div class="tags"><span class="tag">AWS CloudTrail</span><span class="tag">Amazon GuardDuty</span><span class="tag">IAM</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="publications" class="reveal">
+                <div class="section-title">05 // Research & Achievements</div>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Real Time Car Accident Detection and Emergency Response Using Enhanced YOLO</h3>
+                        <span class="meta">Published at 5th EAI ICCSSAS 2025</span>
+                        <p>Published research paper titled "Real Time Car Accident Detection and Emergency Response Using Enhanced YOLO" presented at the 5th EAI International Conference on Cognitive Computing and Cyber Physical Systems (ICCSSAS 2025).</p>
+                        <div class="tags">
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">Enhanced YOLO</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">EAI ICCSSAS 2025</span>
+                        </div>
+                        <a href="https://ieeexplore.ieee.org/document/11459554" target="_blank" class="card-link">
+                            View Publication &rarr;
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="certifications" class="reveal">
+                <div class="section-title">06 // Certifications</div>
+                
+                <h3 style="color: var(--accent-magenta); font-size: 1.1rem; margin-bottom: 1rem;">Acquired Credentials</h3>
+                <div class="grid" style="margin-bottom: 3rem;">
+                    <div class="card">
+                        <div class="tags">
+                            <span class="tag">Google Cybersecurity Professional Certificate</span>
+                            <span class="tag">CCNAv7: Enterprise Networking, Security, and Automation</span>
+                            <span class="tag">Splunk - Data and Tools for Defense Analysts</span>
+                            <span class="tag">Python – Coding Ninjas</span>
+                            <span class="tag">Java – Simplilearn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--accent-cyan); font-size: 1.1rem; margin-bottom: 1rem;">Active Preparation / Learning Paths</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h3>CompTIA Security+ (SY0-701)</h3>
+                        <span class="meta">In Progress // Exam Prep</span>
+                        <p>Mastering core security principles, risk management, identity management, and cryptography.</p>
+                    </div>
+                    <div class="card">
+                        <h3>School of AI Certified Cloud Practitioner (Foundational)</h3>
+                        <span class="meta">In Progress // Exam Prep</span>
+                        <p>Mastering core cloud infrastructure, deployment models, virtual networking, and IAM security controls to design scalable cloud environments.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Microsoft SC-200 (Security Operations Analyst)</h3>
+                        <span class="meta">In Progress // Exam Prep</span>
+                        <p>Learning incident response, KQL, and threat hunting using Microsoft Defender and Sentinel.</p>
+                    </div>
+                    <div class="card">
+                        <h3>TryHackMe SOC Level 1 (SAL1)</h3>
+                        <span class="meta">In Progress // Practical Labs</span>
+                        <p>Completing hands-on modules covering SIEM operations, endpoint security, and threat intelligence.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="reveal">
+                <div class="section-title">07 // Connect</div>
+                <div class="card">
+                    <h3>Initiate Contact</h3>
+                    <p>Actively open to enterprise networking, SOC engineering, and system security opportunities.</p>
+                    <p style="margin-top: 1rem; line-height: 1.8;">
+                        <strong>Email:</strong> <a href="mailto:tharunputani@gmail.com" style="color:var(--accent-cyan); text-decoration:none;">tharunputani@gmail.com</a><br>
+                        <strong>Phone:</strong> +91 9494892028<br>
+                        <strong>Location:</strong> Madanapalle, Andhra Pradesh – 517325
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        function openModal() { document.getElementById('logoModal').classList.add('active'); }
+        function closeModal() { document.getElementById('logoModal').classList.remove('active'); }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(reveal => {
+                observer.observe(reveal);
+            });
+        });
+    </script>
+
+</body>
+</html>
